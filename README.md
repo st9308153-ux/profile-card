@@ -17,5 +17,5 @@
 - CSS3 (Flexbox)
 
 ## Посилання
-- [Макет у Figma][ https://www.figma.com/community/file/1044938598351718939](https://www.figma.com/community/file/1043327063660860416/scrollbar-component?q_id=01b37e1f-0145-423d-a084-3a862f880c81)
+- [Макет у Figma] https://www.figma.com/community/file/1252561852327562039/ecommerce-website-web-page-design-ui-kit-interior-landing-page?q_id=f64707cf-3894-48f2-a786-acb47f8ef72c
 - [Переглянути проєкт (GitHub Pages)]  https://st9308153-ux.github.io/profile-card/
