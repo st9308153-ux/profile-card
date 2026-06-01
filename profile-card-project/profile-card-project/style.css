@@ -181,10 +181,10 @@ body {
 }
 
 /* Заголовок додаткової секції */
-.section-title {
+.section-title { }
   font-size: 15px;
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 12px;
   padding-left: 4px;
-}
+
