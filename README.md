@@ -18,4 +18,4 @@
 
 ## Посилання
 - [Макет у Figma] https://www.figma.com/community/file/1044938598351718939
-- [Переглянути проєкт (GitHub Pages)] https://github.com/st9308153-ux/profile-card/blob/main/profile-card-project/index.html
+- [Переглянути проєкт (GitHub Pages)] [https://github.com/st9308153-ux/profile-card/blob/main/profile-card-project/index.html](https://st9308153-ux.github.io/profile-card/)
