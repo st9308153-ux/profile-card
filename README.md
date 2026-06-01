@@ -18,4 +18,4 @@
 
 ## Посилання
 - [Макет у Figma] https://www.figma.com/community/file/1252561852327562039/ecommerce-website-web-page-design-ui-kit-interior-landing-page?q_id=f64707cf-3894-48f2-a786-acb47f8ef72c
-- [Переглянути проєкт (GitHub Pages)]  https://st9308153-ux.github.io/profile-card/
+- [Переглянути проєкт (GitHub Pages)]  [https://st9308153-ux.github.io/profile-card/](https://st9308153-ux.github.io/profile-card/)
