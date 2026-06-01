@@ -1,35 +1,416 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollbars | Figma Component</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            </div>
-    </header>
+/* ==========================================================================
+   1. КОНСТАНТИ ТА СКИДАННЯ СТИЛІВ
+   ========================================================================== */
+:root {
+    --color-primary: #B88E2F;
+    --color-primary-hover: #9E7927;
+    --color-bg-light: #FFF3E3;
+    --color-text-dark: #333333;
+    --color-text-gray: #666666;
+    --color-text-light: #898989;
+    --color-card-bg: #F4F5F7;
+    --color-white: #FFFFFF;
+    
+    --badge-discount: #E97171;
+    --badge-new: #2EC1AC;
+    
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
 
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="container">
-                <h1 class="hero-title">Scrollbars</h1>
-                <ul class="features-list">
-                    <li>Vertical and Horizontal</li>
-                    <li>Resizable</li>
-                    <li>Flexible positioning</li>
-                </ul>
-                <div class="scrollbars-visual"></div>
-            </div>
-        </section>
-    </main>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <footer class="footer">
-        <div class="container">
-            <p>Розроблено самостійно в рамках лабораторної роботи.</p>
-        </div>
-    </footer>
-</body>
-</html>
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-spacing {
+    padding: 60px 0;
+}
+
+/* Заголовки секцій */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: var(--color-text-gray);
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   2. КНОПКИ
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 18px 50px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn--filled {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--filled:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn--outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    padding: 12px 60px;
+    font-weight: 600;
+}
+
+.btn--outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--white {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    padding: 12px 40px;
+    font-weight: 600;
+    text-transform: none;
+}
+
+.btn--white:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ==========================================================================
+   3. ШАПКА (HEADER)
+   ========================================================================== */
+.header {
+    background-color: var(--color-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo__text {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 0.5px;
+}
+
+.nav__list {
+    display: flex;
+    gap: 50px;
+}
+
+.nav__link {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+}
+
+.nav__link:hover, .nav__link--active {
+    color: var(--color-primary);
+}
+
+.header__actions {
+    display: flex;
+    gap: 30px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.action-btn:hover {
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   4. ГОЛОВНИЙ БАНЕР (HERO)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
+    height: 720px;
+    display: flex;
+    align-items: center;
+}
+
+.hero__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.hero__card {
+    background-color: var(--color-bg-light);
+    padding: 60px 40px 60px 60px;
+    max-width: 640px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.hero__subtitle {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: var(--color-text-dark);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero__title {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.hero__text {
+    font-size: 18px;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* ==========================================================================
+   5. КАТЕГОРІЇ (BROWSE THE RANGE)
+   ========================================================================== */
+.categories__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.category-item {
+    text-align: center;
+}
+
+.category-item__img {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 480px;
+}
+
+.category-item__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-item:hover .category-item__img img {
+    transform: scale(1.04);
+}
+
+.category-item__title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+/* ==========================================================================
+   6. ТОВАРИ (OUR PRODUCTS)
+   ========================================================================== */
+.products__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--color-card-bg);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card__img {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.product-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Інтерактивний оверлей при наведенні */
+.product-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(58, 58, 58, 0.72);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-card__overlay {
+    opacity: 1;
+}
+
+.product-card__actions {
+    display: flex;
+    gap: 20px;
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.product-card__actions a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.product-card__actions a:hover {
+    color: var(--color-primary);
+}
+
+/* Контент картки */
+.product-card__content {
+    padding: 16px 16px 30px 16px;
+}
+
+.product-card__name {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
+}
+
+.product-card__desc {
+    color: var(--color-text-light);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.product-card__prices {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.price-new {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.price-old {
+    font-size: 16px;
+    color: #B0B0B0;
+    text-decoration: line-through;
+}
+
+/* Бейджі (Знижки/Новинки) */
+.product-card__badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 2;
+}
+
+.product-card__badge--discount {
+    background-color: var(--badge-discount);
+}
+
+.product-card__badge--new {
+    background-color: var(--badge-new);
+}
+
+.products__more {
+    text-align: center;
+    margin-top: 32px;
+}
